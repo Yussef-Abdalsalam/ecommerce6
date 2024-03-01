@@ -1,0 +1,27 @@
+.CategorySlider {}
+
+
+.sliderh {
+    height: 200px;
+}
+.sliderp {
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+    .sliderh {
+        height: 100px;
+    }
+    .sliderp {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .sliderh {
+        height: 70px;
+    }
+    .sliderp {
+        font-size: 6px;
+    }
+}

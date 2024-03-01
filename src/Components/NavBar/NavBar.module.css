@@ -1,0 +1,30 @@
+.spanp {
+    font-weight: 600;
+    color: #000;
+}
+
+.span {
+    position: absolute;
+    bottom: 34%;
+    right: -55%;
+    padding: 2px 6px;
+}
+
+.icon {
+    font-size: 22px;
+}
+
+.icon1 {
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.6rem;
+    border-radius: 50%;
+    border: 2px solid #0aad0a;
+}
+
+.icon2 {
+    font-size: 25px;
+}
+

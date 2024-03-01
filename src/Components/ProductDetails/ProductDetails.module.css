@@ -1,0 +1,9 @@
+.ProductDetails {}
+
+.wishListt{
+transition: all 500ms;
+}
+.wishListt:hover{
+color:#0aad0a;
+
+}

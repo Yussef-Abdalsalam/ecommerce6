@@ -1,0 +1,124 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+
+:root {
+    --main-color: #0aad0a;
+    --light-color: #f0f3f2;
+    --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+    --font-family: 'Encode Sans Expanded', sans-serif;
+    --rating-color: #ffc908;
+}
+
+body {
+    font-family: var(--font-family) !important;
+}
+
+.rating-color {
+    color: var(--rating-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+a,
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.product:hover {
+    box-shadow: var(--shadow);
+    border: solid 1px var(--main-color);
+    border-radius: 5px;
+}
+
+.product .btn {
+    position: absolute;
+    left: 0%;
+    bottom: 1%;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: all 500ms;
+}
+
+.product:hover .btn {
+    opacity: 1;
+    left: 50%;
+}
+
+.font-sm {
+    font-size: 14px;
+}
+
+.text-main {
+    color: var(--main-color);
+}
+
+.bg-main {
+    background-color: var(--main-color) !important;
+}
+
+.bg-main-light {
+    background-color: var(--light-color) !important;
+}
+
+.btn-main {
+    border: var(--main-color) 1px solid;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.btn-main:hover {
+    border: var(--main-color) 1px solid;
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.addWishList {
+    right: -10px;
+    opacity: 0;
+    transition: all 500ms;
+}
+
+.addWishList:hover {
+    color: var(--main-color);
+}
+
+.product:hover .addWishList {
+    right: 15px;
+    opacity: 1;
+
+}
+
+.shadoowctg {
+    transition: all 500ms;
+}
+
+.shadoowctg:hover {
+    box-shadow: 1px 1px 10px #48a148;
+}
+
+.nav-link.active {
+    background-color: var(--main-color);
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.nav-link.active i {
+    color: #000;
+}
+
+.btn.show {
+    border-color: #fff;
+}
+
+.btn-group>.btn:active {
+    z-index: 0;
+    border: #fff 1px solid;
+}
+
+.width {
+    width: 4rem;
+    height: 2rem;
+}
