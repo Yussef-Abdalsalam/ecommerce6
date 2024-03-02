@@ -9,7 +9,7 @@ export default function CategorySlider() {
   function getCatSlider() {
     return axios.get("https://ecommerce.routemisr.com/api/v1/Categories")
   }
-  
+
   let { data } = useQuery("CatSlider", getCatSlider)
   let settings = {
     dots: true,
@@ -23,12 +23,12 @@ export default function CategorySlider() {
 
   return (
     <>
-      <div className="  container py-5">
+      <div className=" container py-5">
         <h2>Shop Popular Categories</h2>
         <Slider {...settings}>
           {data?.data?.data.map((el) => <div key={el._id}>
             <img src={el.image} className={`${styles.sliderh} w-100`} alt='' />
-            <p className={`${styles.sliderp}`}>{el.name}</p>
+            <p className={`${styles.sliderp} text-main`}>{el.name}</p>
           </div>)}
         </Slider>
       </div>

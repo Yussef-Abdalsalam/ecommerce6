@@ -51,6 +51,7 @@ export default function Products() {
               </div>
             </div> : ""}
 
+
           {data?.data?.data.map((el) => <div key={el.id} className=" col-xl-3 col-md-4 col-sm-6">
             <div className="product py-1 px-3 position-relative ">
               <div onClick={() => addWishList(el.id)} className={`addWishList cursor-pointer fa-2x position-absolute`}><i className="fa-solid fa-heart"></i></div>
@@ -71,7 +72,9 @@ export default function Products() {
           </div>)}
 
         </div>
+
       </div>
+
     </>
   )
 }

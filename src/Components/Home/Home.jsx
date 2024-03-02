@@ -13,7 +13,6 @@ export default function Home() {
     <MainSlider/>
     <CategorySlider/>
     <FeatureProducts/>
-
     </>
   )
 }

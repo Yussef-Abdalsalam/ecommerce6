@@ -22,18 +22,19 @@ export default function Footer() {
           </div>
           <div className=" d-flex justify-content-between">
             <div className=" d-flex">
-              <h5 className='fw-bold p-2'>payment partners</h5>
-              <div className=" d-flex">
-                <img src={require("../../Assets/images/mastercard_logo.svg__3.png")} className='width px-1' alt="" />
-                <img src={require("../../Assets/images/PayPal-Logo.png")} className='width px-1' alt="" />
+              <p className={`fw-bold px-1`}>payment partners</p>
+              <div className=" row">
+                <img src={require("../../Assets/images/mastercard_logo.svg__3.png")} className='width col-md-6' alt="" />
+                <img src={require("../../Assets/images/PayPal-Logo.png")} className='width px-1 col-md-6' alt="" />
               </div>
             </div>
-            <div className=" d-flex">
-              <h5 className='fw-bold p-2'>Get deliveries with FreshCart</h5>
-              <div className=" d-flex">
-                <img src={require("../../Assets/images/doenload.png")} className={`${styles.widthfootr} px-1`} alt="" />
+            <div className=" d-flex overflow-hidden">
+              <p className={` ${styles.pp}fw-bold`}>Get deliveries with FreshCart</p>
+              <div className=" d-flex overflow-hidden">
+                <img src={require("../../Assets/images/doenload.png")} className={`${styles.widthfootr}`} alt="" />
               </div>
             </div>
+
           </div>
           <div className="">
             <div className=" py-1 text-center">

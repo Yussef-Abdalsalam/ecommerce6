@@ -51,7 +51,7 @@ function isSwal(img , name, slug) {
               </div>
             </div> : ""}
           {brands?.map((el) =>
-            <div key={el._id} className="col-md-3">
+            <div key={el._id} className="col-xl-3  col-md-4 col-sm-6">
               <div onClick={()=>isSwal(el.image, el.name ,el.slug)} className=" rounded-2 border cursor-pointer">
                 <img className='rounded-top-2 w-100' src={el.image} alt="" />
                 <h4 className='py-2 fw-bold text-center'>{el.name}</h4>

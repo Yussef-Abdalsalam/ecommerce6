@@ -38,7 +38,7 @@ export default function Address() {
         token: localStorage.getItem("userToken")
       },
         params:{
-          url:'http://localhost:3000'
+          url:'https://ecommerce-iota-amber.vercel.app'
       }
     })
     setIsLoading(false)
