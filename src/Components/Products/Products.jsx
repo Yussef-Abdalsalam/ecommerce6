@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './Products.module.css';
 import { Toaster } from 'react-hot-toast';
 import { RotatingLines } from 'react-loader-spinner';
@@ -12,6 +12,10 @@ import { wishListContext } from '../../Context/WishListContext';
 
 export default function Products() {
   let { token } = useContext(tokenContext);
+  const [page, setPage] = useState(1)
+
+  
+
 
   let { addToCart } = useContext(cartContext);
   function addCart(id) {
@@ -23,10 +27,28 @@ export default function Products() {
     addToWishList(id)
   }
 
-  function getProducts() {
-    return axios.get("https://ecommerce.routemisr.com/api/v1/products");
+  function edetPage2() {
+    console.log('tmm2');
+    setPage(2)
+    console.log(page);
   }
+
+  function edetPage1() {
+    console.log('tmm1');
+    setPage(1)
+    console.log(page);
+  }
+
+  function getProducts() {
+    return axios.get(`https://ecommerce.routemisr.com/api/v1/products?page=${page}`);
+  }
+
   let { data, isLoading, isFetching } = useQuery("FeatureProducts", getProducts);
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+  
 
 
   return (
@@ -74,6 +96,23 @@ export default function Products() {
         </div>
 
       </div>
+
+      <nav className='container d-flex justify-content-center' aria-label="Page navigation example">
+        <ul className="pagination">
+          <li className="page-item">
+            <a className="cursor-pointer page-link " onClick={edetPage1} aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li className="page-item"><button className="page-link" onClick={edetPage1}>1</button></li>
+          <li className="page-item"><button className="page-link" onClick={edetPage2}>2</button></li>
+          <li className="page-item">
+            <a className="cursor-pointer page-link" onClick={edetPage2} aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
     </>
   )
