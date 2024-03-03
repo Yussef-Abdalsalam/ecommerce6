@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './Register.module.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { nameContext } from '../../Context/UserName';
 
 export default function Register() {
   const [userMessage, setUserMessage] = useState(null)
   const [errMessage, setErrMessage] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  let { setUserName } = useContext(nameContext);
   let navigate = useNavigate()
+
+  
 
   let mySchema = Yup.object(
     {
@@ -37,6 +41,7 @@ export default function Register() {
 
   async function formRegister(values) {
     console.log(values);
+    
     setIsLoading(true)
     return axios.post("https://ecommerce.routemisr.com/api/v1/auth/signup", values).then((data) => {
       console.log(data);
@@ -44,6 +49,7 @@ export default function Register() {
         setUserMessage(data.message);
         navigate("/login")
         setIsLoading(false)
+        setUserName(values.name)
       }
     }).catch((err) => {
       console.log(err);

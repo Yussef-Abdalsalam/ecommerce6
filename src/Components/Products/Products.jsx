@@ -12,9 +12,8 @@ import { wishListContext } from '../../Context/WishListContext';
 
 export default function Products() {
   let { token } = useContext(tokenContext);
-  const [page, setPage] = useState(1)
-
-  
+  const [isLoading, setIsLoading] = useState(true)
+  const [isData, setIsData] = useState({})
 
 
   let { addToCart } = useContext(cartContext);
@@ -27,23 +26,14 @@ export default function Products() {
     addToWishList(id)
   }
 
-  function edetPage2() {
-    console.log('tmm2');
-    setPage(2)
-    console.log(page);
+
+  async function getProducts() {
+    setIsLoading(true)
+    let {data} = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?page=1`);
+    setIsData({data})
+    setIsLoading(false)
   }
 
-  function edetPage1() {
-    console.log('tmm1');
-    setPage(1)
-    console.log(page);
-  }
-
-  function getProducts() {
-    return axios.get(`https://ecommerce.routemisr.com/api/v1/products?page=${page}`);
-  }
-
-  let { data, isLoading, isFetching } = useQuery("FeatureProducts", getProducts);
 
   useEffect(() => {
     getProducts()
@@ -74,7 +64,7 @@ export default function Products() {
             </div> : ""}
 
 
-          {data?.data?.data.map((el) => <div key={el.id} className=" col-xl-3 col-md-4 col-sm-6">
+          {isData?.data?.data.map((el) => <div key={el.id} className=" col-xl-3 col-md-4 col-sm-6">
             <div className="product py-1 px-3 position-relative ">
               <div onClick={() => addWishList(el.id)} className={`addWishList cursor-pointer fa-2x position-absolute`}><i className="fa-solid fa-heart"></i></div>
               <Link to={`/details/` + el.id}>
@@ -100,16 +90,16 @@ export default function Products() {
       <nav className='container d-flex justify-content-center' aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
-            <a className="cursor-pointer page-link " onClick={edetPage1} aria-label="Previous">
+            <Link className="cursor-pointer page-link " aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
-            </a>
+            </Link>
           </li>
-          <li className="page-item"><button className="page-link" onClick={edetPage1}>1</button></li>
-          <li className="page-item"><button className="page-link" onClick={edetPage2}>2</button></li>
+          <li className="page-item"><Link className="page-link cursor-pointer" >1</Link></li>
+          <li className="page-item"><Link className="page-link  cursor-pointer" to='/productsPage2' >2</Link></li>
           <li className="page-item">
-            <a className="cursor-pointer page-link" onClick={edetPage2} aria-label="Next">
+            <Link className="cursor-pointer page-link" to='/productsPage2' aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

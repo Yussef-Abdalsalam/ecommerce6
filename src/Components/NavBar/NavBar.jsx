@@ -6,13 +6,15 @@ import { tokenContext } from '../../Context/TokenContext';
 import Swal from 'sweetalert2';
 import { ietmCartContext } from '../../Context/IetmCart';
 import { ietmWishListContext } from '../../Context/IetmWishList';
+import { nameContext } from '../../Context/UserName';
+
 
 export default function NavBar() {
   let { token, setToken } = useContext(tokenContext);
+  let { userName } = useContext(nameContext);
   let { cart } = useContext(ietmCartContext);
   let { wishList } = useContext(ietmWishListContext);
   let navigate = useNavigate()
-
   function LogOut() {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -26,7 +28,7 @@ export default function NavBar() {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, LogOut it!",
       cancelButtonText: "No, cancel!",
       reverseButtons: true
     }).then(async (result) => {
@@ -96,12 +98,12 @@ export default function NavBar() {
 
                   <li className="nav-item">
                     <NavLink className="nav-link position-relative" to="wishList"><i className={`${styles.icon2} text-main fa-solid fa-heart`}></i>
-                      <span className={`${styles.span}  translate-middle bg-main rounded-circle font-sm`}>{wishList?.data?.data?.length}{wishList?.data?.length}</span></NavLink>
+                      {wishList?.data?.data?.length > 0 ? <span className={`${styles.span}  translate-middle bg-main rounded-circle font-sm`}>{wishList?.data?.data?.length}{wishList?.data?.length}</span> : ""}  </NavLink>
                   </li>
 
                   <li className="nav-item mx-1 px-4">
                     <NavLink className="nav-link position-relative" to="cart"> <i className={`${styles.icon} text-main fa-solid fa-cart-shopping icon`}></i>
-                      <span className={`${styles.span}  translate-middle bg-main rounded-circle font-sm`}>{cart?.data?.numOfCartItems}{cart?.numOfCartItems}</span></NavLink>
+                      {cart?.data?.numOfCartItems > 0 ? <span className={`${styles.span}  translate-middle bg-main rounded-circle font-sm`}>{cart?.data?.numOfCartItems}{cart?.numOfCartItems}</span> : ""} </NavLink>
                   </li>
 
                   <li className="nav-item px-4 position-relative">
@@ -114,6 +116,7 @@ export default function NavBar() {
                         <hr />
                         <li><Link className=' px-2' to={"/forgot"}>Forget Password</Link></li>
                       </ul>
+                      {userName ? <div className=" pt-2 px-2 text-main">{userName}</div> : ""}
                     </div>
                   </li>
 

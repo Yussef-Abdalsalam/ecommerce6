@@ -20,24 +20,22 @@ export default function FeatureProducts() {
   }
 
   function edetPage2() {
-    console.log('tmm2');
     setPage(2)
-    console.log(page);
   }
   function edetPage1() {
-    console.log('tmm1');
     setPage(1)
-    console.log(page);
   }
 
   function getProducts() {
     return axios.get(`https://ecommerce.routemisr.com/api/v1/products?page=${page}`);
   }
+
   let { data, isLoading, isFetching } = useQuery("FeatureProducts", getProducts);
 
   return (
     <>
       <div><Toaster /></div>
+      
       <div className="container py-5">
         <div className="row">
           {isLoading ?
@@ -59,7 +57,7 @@ export default function FeatureProducts() {
 
           {data?.data?.data.map((el) => <div key={el.id} className=" col-xl-3 col-md-4 col-sm-6">
             <div className=" position-relative product py-1 px-3">
-            <div onClick={() => addWishList(el.id)} className={`addWishList cursor-pointer fa-2x position-absolute`}><i className="fa-solid fa-heart"></i></div>
+              <div onClick={() => addWishList(el.id)} className={`addWishList cursor-pointer fa-2x position-absolute`}><i className="fa-solid fa-heart"></i></div>
               <Link to={`details/` + el.id}>
                 <img className='w-100' src={el.imageCover} alt="" />
                 <p className='text-main font-sm p-1'>{el.description.split(" ").slice(0, 1).join(" ")}</p>

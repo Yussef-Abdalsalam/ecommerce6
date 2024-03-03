@@ -86,6 +86,7 @@ export default function Cart() {
       icon: "warning",
       showCancelButton: true,
       confirmButtonText: "Yes, delete it!",
+      
       cancelButtonText: "No, cancel!",
       reverseButtons: true
     }).then(async (result) => {

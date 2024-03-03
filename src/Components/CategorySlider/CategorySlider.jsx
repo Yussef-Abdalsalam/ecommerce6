@@ -15,7 +15,7 @@ export default function CategorySlider() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 7,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,

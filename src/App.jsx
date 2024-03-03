@@ -5,6 +5,7 @@ import Home from './Components/Home/Home.jsx'
 import Register from './Components/Register/Register.jsx'
 import Login from './Components/Login/Login.jsx'
 import Products from './Components/Products/Products.jsx'
+import ProductsPage2 from './Components/Products/ProductsPage2.jsx'
 import Cart from './Components/Cart/Cart.jsx'
 import NotFound from './Components/NotFound/NotFound.jsx'
 import { tokenContext } from './Context/TokenContext.js'
@@ -39,6 +40,7 @@ export default function App() {
       {path:"register", element: <ProtectedAuth><Register/></ProtectedAuth>},
       {path:"login", element: <ProtectedAuth><Login/></ProtectedAuth>},
       {path:"products", element: <ProtectedRoutec><Products/></ProtectedRoutec>},
+      {path:"productsPage2", element: <ProtectedRoutec><ProductsPage2/></ProtectedRoutec>},
       {path:"cart", element: <ProtectedRoutec><Cart/></ProtectedRoutec>},
       {path:"Address/:cartId", element: <ProtectedRoutec><Address/></ProtectedRoutec>},
       {path:"cashOrder/:cartId", element: <ProtectedRoutec><CashOrder/></ProtectedRoutec>},
