@@ -44,7 +44,6 @@ export default function WishList() {
     if (data?.data) {
       getWishlist()
       setIsLoading(false)
-      setWishList(data)
     }
 
   }

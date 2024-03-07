@@ -4,13 +4,11 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { nameContext } from '../../Context/UserName';
 
 export default function Register() {
   const [userMessage, setUserMessage] = useState(null)
   const [errMessage, setErrMessage] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
-  let { setUserName } = useContext(nameContext);
   let navigate = useNavigate()
 
   
@@ -49,7 +47,7 @@ export default function Register() {
         setUserMessage(data.message);
         navigate("/login")
         setIsLoading(false)
-        setUserName(values.name)
+   
       }
     }).catch((err) => {
       console.log(err);

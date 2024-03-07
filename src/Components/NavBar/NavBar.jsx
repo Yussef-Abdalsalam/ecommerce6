@@ -15,6 +15,8 @@ export default function NavBar() {
   let { cart } = useContext(ietmCartContext);
   let { wishList } = useContext(ietmWishListContext);
   let navigate = useNavigate()
+  console.log(wishList);
+  
   function LogOut() {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -55,11 +57,11 @@ export default function NavBar() {
 
   }
 
+  let name = localStorage.getItem("username");
   return (
     <>
-
-      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <div className="container">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top box-shdo ">
+        <div className="container py-1">
           <Link aria-label="logo hike" to="">
             <img src={img1} alt="" />
           </Link>
@@ -112,17 +114,18 @@ export default function NavBar() {
                         <i className={`${styles.icon1} text-main fa-solid fa-user`}></i>
                       </button>
                       <ul className="dropdown-menu py-3">
-                        <li><Link className=' px-2' to={"/updatePassword"}>Update Password</Link></li>
+                        <li><Link className={`${styles.botn} p-2`} to={"/updatePassword"}>Update Password</Link></li>
                         <hr />
-                        <li><Link className=' px-2' to={"/forgot"}>Forget Password</Link></li>
+                        <li><Link className={`${styles.botn} p-2`} to={"/forgot"}>Forget Password</Link></li>
+                        <hr />
+
+                        <li className={`${styles.botn} text-center`} ><button className={`${styles.botn} btn fw-bold`} onClick={LogOut} >LogOut</button></li>
+
                       </ul>
-                      {userName ? <div className=" pt-2 px-2 text-main">{userName}</div> : ""}
+                      {userName  ? <div className=" pt-2 px-2 text-main">{userName}</div> : <div className=" pt-2 px-2 text-main">{name}</div>}
                     </div>
                   </li>
 
-                  <li className="nav-item px-4">
-                    <button onClick={LogOut} className="nav-link" >LogOut</button>
-                  </li>
                 </div>
 
                 :

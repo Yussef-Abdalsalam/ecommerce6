@@ -22,6 +22,7 @@ import ForgotCode from './Components/Forgot/ForgotCode.jsx'
 import ForgetPassword from './Components/Forgot/ForgetPassword.jsx'
 import UpdatePassword from './Components/UpdatePassword/UpdatePassword.jsx'
 import CashOrder from './Components/Address/CashOrder.jsx'
+import CatgoriesDetails from './Components/CatgoriesDetails/CatgoriesDetails.jsx'
 
 export default function App() {
 
@@ -36,11 +37,11 @@ export default function App() {
 
   let routes = createBrowserRouter([{
     path:"", element:<Layout/>,children:([
-      {index: true, element: <ProtectedRoutec><Home/></ProtectedRoutec> },
+      {index: true, element: <Home/> },
       {path:"register", element: <ProtectedAuth><Register/></ProtectedAuth>},
       {path:"login", element: <ProtectedAuth><Login/></ProtectedAuth>},
       {path:"products", element: <ProtectedRoutec><Products/></ProtectedRoutec>},
-      {path:"productsPage2", element: <ProtectedRoutec><ProductsPage2/></ProtectedRoutec>},
+      {path:"products/productsPage2", element: <ProtectedRoutec><ProductsPage2/></ProtectedRoutec>},
       {path:"cart", element: <ProtectedRoutec><Cart/></ProtectedRoutec>},
       {path:"Address/:cartId", element: <ProtectedRoutec><Address/></ProtectedRoutec>},
       {path:"cashOrder/:cartId", element: <ProtectedRoutec><CashOrder/></ProtectedRoutec>},
@@ -49,6 +50,7 @@ export default function App() {
       {path:"wishList", element: <ProtectedRoutec><WishList/></ProtectedRoutec>},
       {path:"allorders", element: <ProtectedRoutec><Orders/></ProtectedRoutec>},
       {path:"details/:id", element: <ProtectedRoutec><ProductDetails/></ProtectedRoutec>},
+      {path:"detailsCatrgories/:id", element: <ProtectedRoutec><CatgoriesDetails/></ProtectedRoutec>},
       {path:"updatePassword", element: <UpdatePassword/>},
       {path:"forgot", element: <Forgot/>},
       {path:"forgotCode", element:<ForgotCode/>},

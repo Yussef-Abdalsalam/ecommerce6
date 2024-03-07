@@ -2,17 +2,11 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { RotatingLines } from 'react-loader-spinner';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 
 export default function Catrgories() {
-  const [catrgories, setCatrgories] = useState([])
-
   function getCatrgories() {
     return axios.get("https://ecommerce.routemisr.com/api/v1/categories");
-  }
-
-  async function getCatrgoriesIetm(id) {
-    let { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/categories/${id}/subcategories`)
-    setCatrgories(data?.data)
   }
 
   let { data, isLoading, isFetching } = useQuery("Catrgories", getCatrgories);
@@ -37,24 +31,19 @@ export default function Catrgories() {
                 />
               </div>
             </div> : ""}
+
           {data?.data?.data.map((el) =>
             <div key={el._id} className=" col-xl-4 col-md-6">
-              <div onClick={() => getCatrgoriesIetm(el._id)} className="shadoowctg rounded-2 border cursor-pointer">
-                <img className='rounded-top-2 w-100' height={250} src={el.image} alt="" />
-                <h2 className='py-2 fw-bold text-center'>{el.name}</h2>
-              </div>
+              <Link to={`/detailsCatrgories/${el._id}`}>
+                <div className="shadoowctg rounded-2 border cursor-pointer">
+                  <img className='rounded-top-2 w-100' height={250} src={el.image} alt="" />
+                  <h2 className='py-2 fw-bold text-center'>{el.name}</h2>
+                </div>
+              </Link>
+
             </div>
           )}
-          <br />
-          <hr />
-        </div>
-        
-        <div className="row gy-2 mt-3">
-          {catrgories?.map((el) =>
-            <div  key={el._id} className="col-md-4">
-              <h3 className='text-center fw-bold py-4 shadoowctg border'>{el.name}</h3>
-            </div>
-          )}
+
         </div>
       </div>
 

@@ -9,7 +9,6 @@ import { Toaster } from 'react-hot-toast';
 import { wishListContext } from '../../Context/WishListContext';
 
 export default function FeatureProducts() {
-  const [page, setPage] = useState(1)
   let { addToCart } = useContext(cartContext);
   function addCart(id) {
     addToCart(id)
@@ -19,15 +18,9 @@ export default function FeatureProducts() {
     addToWishList(id)
   }
 
-  function edetPage2() {
-    setPage(2)
-  }
-  function edetPage1() {
-    setPage(1)
-  }
 
   function getProducts() {
-    return axios.get(`https://ecommerce.routemisr.com/api/v1/products?page=${page}`);
+    return axios.get(`https://ecommerce.routemisr.com/api/v1/products?page=1`);
   }
 
   let { data, isLoading, isFetching } = useQuery("FeatureProducts", getProducts);
@@ -35,7 +28,7 @@ export default function FeatureProducts() {
   return (
     <>
       <div><Toaster /></div>
-      
+
       <div className="container py-5">
         <div className="row">
           {isLoading ?
@@ -80,16 +73,16 @@ export default function FeatureProducts() {
       <nav className='container d-flex justify-content-center' aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
-            <a className="cursor-pointer page-link " onClick={edetPage1} aria-label="Previous">
+            <Link className="cursor-pointer page-link " aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
-            </a>
+            </Link>
           </li>
-          <li className="page-item"><button className="page-link" onClick={edetPage1}>1</button></li>
-          <li className="page-item"><button className="page-link" onClick={edetPage2}>2</button></li>
+          <li className="page-item"><Link className="page-link cursor-pointer"  >1</Link></li>
+          <li className="page-item"><Link className="page-link cursor-pointer" to='products/productsPage2' >2</Link></li>
           <li className="page-item">
-            <a className="cursor-pointer page-link" onClick={edetPage2} aria-label="Next">
+            <Link className="cursor-pointer page-link" to='/products/productsPage2' aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

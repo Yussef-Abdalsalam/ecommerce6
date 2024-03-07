@@ -82,9 +82,7 @@ export default function Products() {
               </div>
             </div>
           </div>)}
-
         </div>
-
       </div>
 
       <nav className='container d-flex justify-content-center' aria-label="Page navigation example">
@@ -95,9 +93,9 @@ export default function Products() {
             </Link>
           </li>
           <li className="page-item"><Link className="page-link cursor-pointer" >1</Link></li>
-          <li className="page-item"><Link className="page-link  cursor-pointer" to='/productsPage2' >2</Link></li>
+          <li className="page-item"><Link className="page-link  cursor-pointer" to='productsPage2' >2</Link></li>
           <li className="page-item">
-            <Link className="cursor-pointer page-link" to='/productsPage2' aria-label="Next">
+            <Link className="cursor-pointer page-link" to='productsPage2' aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
             </Link>
           </li>

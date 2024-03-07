@@ -20,7 +20,8 @@ export default function Footer() {
             </div>
             <hr />
           </div>
-          <div className=" d-flex justify-content-between">
+
+          <div className=" d-flex px-3 py-2 justify-content-between">
             <div className=" d-flex">
               <p className={`fw-bold px-1`}>payment partners</p>
               <div className=" row">
@@ -28,7 +29,7 @@ export default function Footer() {
                 <img src={require("../../Assets/images/PayPal-Logo.png")} className='width px-1 col-md-6' alt="" />
               </div>
             </div>
-            <div className=" d-flex overflow-hidden">
+            <div className=" d-flex px-2 py-2 overflow-hidden">
               <p className={` ${styles.pp}fw-bold`}>Get deliveries with FreshCart</p>
               <div className=" d-flex overflow-hidden">
                 <img src={require("../../Assets/images/doenload.png")} className={`${styles.widthfootr}`} alt="" />
@@ -37,9 +38,9 @@ export default function Footer() {
 
           </div>
           <div className="">
-            <div className=" py-1 text-center">
-              <p className="copyright m-0 fs-6 fw-bold">
-              © 2024 <a
+            <div className=" text-center">
+              <p className="copyright m-0 fs-6">
+                © 2024 <a
                   href="https://www.linkedin.com/in/yussef-abdalsalam-100486254"
                   className={`${styles.tatl} fw-bold text-decoration-none fw-normal d-inline-block`}
                   target="_blank"

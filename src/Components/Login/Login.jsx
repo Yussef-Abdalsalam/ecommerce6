@@ -5,12 +5,14 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import { tokenContext } from '../../Context/TokenContext';
+import { nameContext } from '../../Context/UserName';
 
 export default function Login() {
   let { token, setToken } = useContext(tokenContext);
   const [userMessage, setUserMessage] = useState(null)
   const [errMessage, setErrMessage] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  let { setUserName } = useContext(nameContext);
   let navigate = useNavigate()
 
 
@@ -23,12 +25,8 @@ export default function Login() {
 
   let formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
-      rePassword: "",
-      phone: "",
-
     }, validationSchema: mySchema
     , onSubmit: (values) => {
       formLogin(values)
@@ -36,13 +34,14 @@ export default function Login() {
   })
 
   async function formLogin(values) {
-    console.log(values);
     setIsLoading(true)
     return axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin", values).then((data) => {
       localStorage.setItem("userToken", data.data.token)
       setToken(data.data.token)
       if (data.data.message == "success") {
         setUserMessage(data.message);
+        setUserName(data.data.user.name);
+        localStorage.setItem("username", data.data.user.name)
         navigate("/")
         setIsLoading(false)
       }

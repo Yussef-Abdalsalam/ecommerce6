@@ -47,7 +47,7 @@ export default function ProductDetails() {
 
   return (
     <>
-      <div><Toaster /></div>
+      <div><Toaster/></div>
       <div className="container my-5 ">
         {isLoading ?
           <div className=" d-flex justify-content-center mt-5 pt-5">
@@ -74,8 +74,8 @@ export default function ProductDetails() {
             </div>
             <div className="col-md-8">
               <div className=" d-flex justify-content-between">
-              <h3>{details.title}</h3>
-              <div onClick={() => addWishList(details.id)} className={`${styles.wishListt} cursor-pointer fa-2x `}><i className="fa-solid fa-heart"></i></div>
+                <h3 className='pt-3'>{details.title}</h3>
+                <div onClick={() => addWishList(details.id)} className={`${styles.wishListt} cursor-pointer fa-2x `}><i className="fa-solid fa-heart"></i></div>
               </div>
               <p className=' text-secondary'>{details.description}</p>
               <p>{details.category.name}</p>

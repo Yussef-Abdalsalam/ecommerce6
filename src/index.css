@@ -108,7 +108,10 @@ a:hover {
 .nav-link.active i {
     color: #000;
 }
-
+.box-shdo{
+   box-shadow:  0 .5rem 1rem rgba(0, 0, 0, .15);
+   border-radius: 10px 10px;
+}
 .btn.show {
     border-color: #fff;
 }

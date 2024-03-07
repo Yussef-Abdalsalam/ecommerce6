@@ -51,6 +51,7 @@ export default function Cart() {
           }
         })
         setIsCart(data?.data);
+        console.log(data?.data);
         setCartContext(data)
         swalWithBootstrapButtons.fire({
           title: "Deleted!",
@@ -132,9 +133,6 @@ export default function Cart() {
 
     }
   }
-
-
-
 
   useEffect(() => {
     getCartProduct()
