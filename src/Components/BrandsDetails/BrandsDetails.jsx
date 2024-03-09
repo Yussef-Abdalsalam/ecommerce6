@@ -7,10 +7,10 @@ import { cartContext } from '../../Context/CartContext';
 import { RotatingLines } from 'react-loader-spinner';
 import { Toaster } from 'react-hot-toast';
 
-export default function CatgoriesDetails() {
+export default function BrandsDetails() {
     let { id } = useParams();
 
-    function getProducts() {
+    function getpranProducts() {
         return axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
     }
 
@@ -24,9 +24,10 @@ export default function CatgoriesDetails() {
         addToWishList(id)
     }
 
-    let { data, isLoading } = useQuery("getProducts", getProducts);
+    let { data, isLoading } = useQuery("getpranProducts", getpranProducts);
 
-    let dta = data?.data?.data?.filter((prodct) => prodct.category._id === id)
+    let dta = data?.data?.data?.filter((prodct) => prodct.brand._id === id)
+    console.log(dta);
 
     return (
         <>
@@ -50,11 +51,8 @@ export default function CatgoriesDetails() {
                             </div>
                         </div> : ""}
 
-                    <div>{dta?.length === 0 || dta == [] ? <h2 className=' alert alert-warning text-center my-5'>No products in yuor Catgories Details</h2> : ""}</div>
-
-                    {data?.data?.data?.filter((prodct) => prodct.category._id === id)
+                    {data?.data?.data?.filter((prodct) => prodct.brand._id === id)
                         .map((el) => (
-
                             <div key={el.id} className=" col-xl-3 col-md-4 col-sm-6">
                                 <div className="product py-1 px-3 position-relative ">
                                     <div onClick={() => addWishList(el.id)} className={`addWishList cursor-pointer fa-2x position-absolute`}><i className="fa-solid fa-heart"></i></div>
@@ -75,6 +73,7 @@ export default function CatgoriesDetails() {
                             </div>
                         ))}
 
+                    <div>{dta?.length === 0 || dta == [] ? <h2 className=' alert alert-warning text-center my-5'>No products in yuor Catgories Details</h2> : ""}</div>
                 </div>
             </div>
 

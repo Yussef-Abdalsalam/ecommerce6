@@ -9,7 +9,7 @@ import { ietmWishListContext } from '../../Context/IetmWishList';
 export default function WishList() {
   const [wishlist, setWishlist] = useState({})
   const [isLoading, setIsLoading] = useState(true)
-  let { setWishList } = useContext(ietmWishListContext);
+  let { setWishListt } = useContext(ietmWishListContext);
 
   let { addToCart } = useContext(cartContext);
   function addCart(id) {
@@ -26,6 +26,7 @@ export default function WishList() {
         }
       })
       setWishlist(data?.data);
+      setWishListt(data?.data)
       setIsLoading(false)
     } catch (error) {
       setIsLoading(false)
@@ -44,10 +45,10 @@ export default function WishList() {
     if (data?.data) {
       getWishlist()
       setIsLoading(false)
+      setWishListt(data)
     }
 
   }
-
   useEffect(() => {
     getWishlist()
   }, [])

@@ -34,7 +34,7 @@ export default function Catrgories() {
 
           {data?.data?.data.map((el) =>
             <div key={el._id} className=" col-xl-4 col-md-6">
-              <Link to={`/detailsCatrgories/${el._id}`}>
+              <Link to={`detailsCatrgories/${el._id}`}>
                 <div className="shadoowctg rounded-2 border cursor-pointer">
                   <img className='rounded-top-2 w-100' height={250} src={el.image} alt="" />
                   <h2 className='py-2 fw-bold text-center'>{el.name}</h2>

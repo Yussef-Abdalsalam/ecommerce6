@@ -2,16 +2,16 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { RotatingLines } from 'react-loader-spinner';
-import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 export default function Brands() {
 const [brands, setBrands] = useState([])
 const [isLoading, setIsLoading] = useState(true)
 
   async function getbrands() {
+
     let { data } = await axios.get("https://ecommerce.routemisr.com/api/v1/brands");
     setBrands(data.data);
-    
     setIsLoading(false)
   }
 
@@ -20,16 +20,6 @@ const [isLoading, setIsLoading] = useState(true)
   }, [])
   
 
-function isSwal(img , name, slug) {
-  Swal.fire({
-    title: name,
-    text: `Modal a ${slug}.`,
-    imageUrl: img ,
-    imageWidth: 400,
-    imageHeight: 200,
-    imageAlt: "Custom image"
-  });
-}
   return (
     <>
       <div className="container mt-5 py-5">
@@ -50,12 +40,15 @@ function isSwal(img , name, slug) {
                 />
               </div>
             </div> : ""}
+
           {brands?.map((el) =>
             <div key={el._id} className="col-xl-3  col-md-4 col-sm-6">
-              <div onClick={()=>isSwal(el.image, el.name ,el.slug)} className=" rounded-2 border cursor-pointer">
+              <Link to={`brandsDetails/${el._id}`}>
+              <div  className=" rounded-2 border cursor-pointer">
                 <img className='rounded-top-2 w-100' src={el.image} alt="" />
                 <h4 className='py-2 fw-bold text-center'>{el.name}</h4>
               </div>
+              </Link>
             </div>
           )}
         </div>

@@ -42,7 +42,7 @@ export default function Login() {
         setUserMessage(data.message);
         setUserName(data.data.user.name);
         localStorage.setItem("username", data.data.user.name)
-        navigate("/")
+        navigate("/home")
         setIsLoading(false)
       }
     }).catch((err) => {

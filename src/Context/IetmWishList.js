@@ -6,7 +6,7 @@ import { useState } from "react";
 export let ietmWishListContext = createContext();
 
 export default function IetmWishListContextProvider({children}) {
-    const [wishList, setWishList] = useState(0)
+    const [wishList, setWishListt] = useState(0)
 
     function ietmWishList() {
         return axios.get(`https://ecommerce.routemisr.com/api/v1/wishlist`, {
@@ -14,7 +14,7 @@ export default function IetmWishListContextProvider({children}) {
                 token: localStorage.getItem("userToken")
             }
         }).then((data) => {
-            setWishList(data)
+            setWishListt(data)
         }).catch((err) => {
             console.log(err);
         })
@@ -23,7 +23,7 @@ export default function IetmWishListContextProvider({children}) {
     useEffect(() => {
         ietmWishList()
     }, [])
-    return <ietmWishListContext.Provider value={{ wishList, setWishList }}>
+    return <ietmWishListContext.Provider value={{ wishList, setWishListt }}>
 
         {children}
 

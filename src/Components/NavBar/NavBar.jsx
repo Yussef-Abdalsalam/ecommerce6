@@ -15,8 +15,8 @@ export default function NavBar() {
   let { cart } = useContext(ietmCartContext);
   let { wishList } = useContext(ietmWishListContext);
   let navigate = useNavigate()
-  console.log(wishList);
-  
+
+
   function LogOut() {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -69,11 +69,12 @@ export default function NavBar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
             {token ?
               <ul className="navbar-nav fw-bold me-auto py-1 mb-2 mb-lg-0">
 
                 <li className="nav-item px-1">
-                  <NavLink className="nav-link" aria-current="page" to="">Home</NavLink >
+                  <NavLink className="nav-link" aria-current="page" to="home">Home</NavLink >
                 </li>
 
                 <li className="nav-item px-1">
@@ -92,7 +93,13 @@ export default function NavBar() {
 
 
               </ul>
-              : ""}
+              :
+              <ul className="navbar-nav fw-bold me-auto py-1 mb-2 mb-lg-0">
+                <li className="nav-item px-1">
+                  <NavLink className="nav-link" aria-current="page" to="">Home</NavLink >
+                </li>
+              </ul>
+            }
 
             <ul className="navbar-nav fw-bold ms-auto mb-2 mb-lg-0">
               {token ?
@@ -100,12 +107,12 @@ export default function NavBar() {
 
                   <li className="nav-item">
                     <NavLink className="nav-link position-relative" to="wishList"><i className={`${styles.icon2} text-main fa-solid fa-heart`}></i>
-                      {wishList?.data?.data?.length > 0 ? <span className={`${styles.span}  translate-middle bg-main rounded-circle font-sm`}>{wishList?.data?.data?.length}{wishList?.data?.length}</span> : ""}  </NavLink>
+                      {wishList?.data?.data?.length > 0 || wishList?.length > 0 ? <span className={`${styles.span}  translate-middle bg-main rounded-circle font-sm`}>{wishList?.data?.data?.length}{wishList?.length}</span> : ""}  </NavLink>
                   </li>
 
                   <li className="nav-item mx-1 px-4">
                     <NavLink className="nav-link position-relative" to="cart"> <i className={`${styles.icon} text-main fa-solid fa-cart-shopping icon`}></i>
-                      {cart?.data?.numOfCartItems > 0 ? <span className={`${styles.span}  translate-middle bg-main rounded-circle font-sm`}>{cart?.data?.numOfCartItems}{cart?.numOfCartItems}</span> : ""} </NavLink>
+                      {cart?.data?.numOfCartItems > 0 || cart?.numOfCartItems > 0 ? <span className={`${styles.span}  translate-middle bg-main rounded-circle font-sm`}>{cart?.data?.numOfCartItems}{cart?.numOfCartItems}</span> : ""} </NavLink>
                   </li>
 
                   <li className="nav-item px-4 position-relative">
@@ -122,7 +129,7 @@ export default function NavBar() {
                         <li className={`${styles.botn} text-center`} ><button className={`${styles.botn} btn fw-bold`} onClick={LogOut} >LogOut</button></li>
 
                       </ul>
-                      {userName  ? <div className=" pt-2 px-2 text-main">{userName}</div> : <div className=" pt-2 px-2 text-main">{name}</div>}
+                      {userName ? <div className=" pt-2 px-2 text-main">{userName}</div> : <div className=" pt-2 px-2 text-main">{name}</div>}
                     </div>
                   </li>
 
@@ -131,11 +138,11 @@ export default function NavBar() {
                 :
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="register">Register</Link>
+                    <NavLink className="nav-link" to="register">Register</NavLink>
                   </li>
 
                   <li className="nav-item">
-                    <Link className="nav-link" to="login">Login</Link>
+                    <NavLink className="nav-link" to="login">Login</NavLink>
                   </li>
                 </>
               }

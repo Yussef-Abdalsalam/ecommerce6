@@ -3,6 +3,7 @@
 
 .sliderh {
     height: 200px;
+    border-radius: 5px;
 }
 .sliderp {
     font-size: 16px;
@@ -11,6 +12,7 @@
 @media only screen and (max-width: 600px) {
     .sliderh {
         height: 100px;
+        border-radius: 3px;
     }
     .sliderp {
         font-size: 12px;
@@ -20,6 +22,7 @@
 @media only screen and (max-width: 400px) {
     .sliderh {
         height: 70px;
+        border-radius: 2px;
     }
     .sliderp {
         font-size: 6px;

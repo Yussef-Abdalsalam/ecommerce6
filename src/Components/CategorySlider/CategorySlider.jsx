@@ -26,9 +26,9 @@ export default function CategorySlider() {
       <div className=" container py-5">
         <h2>Shop Popular Categories</h2>
         <Slider {...settings}>
-          {data?.data?.data.map((el) => <div key={el._id}>
+          {data?.data?.data.map((el) => <div className='px-4' key={el._id}>
             <img src={el.image} className={`${styles.sliderh} w-100`} alt='' />
-            <p className={`${styles.sliderp} text-main`}>{el.name}</p>
+            <p className={`${styles.sliderp} text-center text-main`}>{el.name}</p>
           </div>)}
         </Slider>
       </div>

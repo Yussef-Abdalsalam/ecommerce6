@@ -17,7 +17,7 @@ export default function MainSlider() {
   return (
     <>
       <div className="container mt-5 pt-5">
-        <div className=" d-flex">
+        <div className="radius overflow-hidden d-flex">
           <div className="col-md-9 col-9">
             <Slider {...settings}>
               <img src={require("../../Assets/images/1.jpg")} className={`${styles.slider1} w-100`} alt='' />

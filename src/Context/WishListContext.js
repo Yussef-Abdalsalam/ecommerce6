@@ -8,7 +8,7 @@ export let wishListContext = createContext();
 
 
 export default function WishListContextProvider(props) {
-    let { setWishList } = useContext(ietmWishListContext);
+    let { setWishListt } = useContext(ietmWishListContext);
 
     function addToWishList(id) {
 
@@ -20,7 +20,7 @@ export default function WishListContextProvider(props) {
             }
         }).then((data) => {
             toast.success(' Product Add WishList Success!')
-            setWishList(data)
+            setWishListt(data)
         }).catch((err) => {
             toast.err("This didn't work.")
         })

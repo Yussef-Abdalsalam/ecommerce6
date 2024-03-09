@@ -40,7 +40,7 @@ export default function UpdatePassword() {
       console.log(data);
       if (data?.data?.message == "success") {
         toast.success(data.data.message)
-        navigate("/")
+        navigate("/home")
         setIsLoading(false)
       }
     }).catch((err) => {

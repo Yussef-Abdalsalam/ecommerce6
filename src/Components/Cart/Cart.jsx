@@ -200,7 +200,7 @@ export default function Cart() {
               </div>
             </div>
 
-            : <h2 className=' alert alert-warning text-center my-5'>No products in yuor cart</h2>
+            : <h2 className=' alert alert-warning pt-5 text-center my-5'>No products in yuor cart</h2>
           }
         </>
       }
