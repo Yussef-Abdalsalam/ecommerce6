@@ -108,17 +108,20 @@ a:hover {
 .nav-link.active i {
     color: #000;
 }
-.box-shdo{
-   box-shadow:  0 .5rem 1rem rgba(0, 0, 0, .15);
-   border-radius: 10px 10px;
+
+.box-shdo {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    border-radius: 10px 10px;
 }
 
 .btn.show {
     border-color: #fff;
 }
-.radius{
+
+.radius {
     border-radius: 5px;
 }
+
 .btn-group>.btn:active {
     z-index: 0;
     border: #fff 1px solid;
@@ -127,4 +130,25 @@ a:hover {
 .width {
     width: 3rem;
     height: 2rem;
+}
+
+.text-main1{
+ color: var(--main-color);
+}
+
+.text-main1:hover{
+ color: var(--main-color);
+}
+.sliderctg {
+    padding-inline: 1.2rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .sliderctg {
+        padding-inline: 0.2rem;
+    }
+    .btnFooter {
+        text-align: center;
+        padding-block: 0.7rem;
+    }
 }

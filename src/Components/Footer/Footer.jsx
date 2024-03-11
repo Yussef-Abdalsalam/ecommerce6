@@ -14,8 +14,8 @@ export default function Footer() {
               <div className="col-md-9">
                 <input type="email" className="form-control" placeholder="Email..." />
               </div>
-              <div className="col-md-3">
-                <button className=' btn btn-success bg-main'>Share App Link</button>
+              <div className="col-md-3 btnFooter">
+                <button className='  btn btn-success bg-main'>Share App Link</button>
               </div>
             </div>
             <hr />

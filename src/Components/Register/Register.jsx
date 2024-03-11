@@ -3,7 +3,7 @@ import styles from './Register.module.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [userMessage, setUserMessage] = useState(null)
@@ -11,7 +11,7 @@ export default function Register() {
   const [isLoading, setIsLoading] = useState(false)
   let navigate = useNavigate()
 
-  
+
 
   let mySchema = Yup.object(
     {
@@ -39,7 +39,7 @@ export default function Register() {
 
   async function formRegister(values) {
     console.log(values);
-    
+
     setIsLoading(true)
     return axios.post("https://ecommerce.routemisr.com/api/v1/auth/signup", values).then((data) => {
       console.log(data);
@@ -47,7 +47,7 @@ export default function Register() {
         setUserMessage(data.message);
         navigate("/login")
         setIsLoading(false)
-   
+
       }
     }).catch((err) => {
       console.log(err);
@@ -89,15 +89,15 @@ export default function Register() {
             <input type="tel" name='phone' id='phone' className='form-control mb-2'
               onChange={formik.handleChange} value={formik.values.phone} onBlur={formik.handleBlur} />
             {formik.touched.phone && formik.errors.phone ? <div className="alert alert-danger">{formik.errors.phone}</div> : ""}
+            <div className=" d-flex">
+              {isLoading ? <button type='submit' className='btn bg-main text-white'><i className='fa fa-spin fa-spinner'></i></button>
+                : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Register</button>}
+              <div className="px-3 pt-1">Have An Email ? <Link className='text-main1 fw-bold' to={"/login"}>Login</Link></div>
+            </div>
 
-            {isLoading ? <button type='submit' className='btn bg-main text-white'><i className='fa fa-spin fa-spinner'></i></button>
-            :  <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Register</button> }
-            
-           
           </form>
         </div>
       </div>
-
     </>
   )
 }
