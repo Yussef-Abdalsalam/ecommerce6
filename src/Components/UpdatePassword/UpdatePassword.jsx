@@ -68,7 +68,7 @@ export default function UpdatePassword() {
               />
             </div>
           </div> : ""}
-      <div className="container mt-5">
+      <div className="container mt-5 pt-5">
         <div className="w-75 mx-auto">
           <form onSubmit={formik.handleSubmit}>
             <h2>Update User Password</h2>
