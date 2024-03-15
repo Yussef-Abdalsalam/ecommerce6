@@ -142,6 +142,9 @@ a:hover {
 .sliderctg {
     padding-inline: 1.2rem;
 }
+.ssm{
+    display: none;
+}
 
 @media only screen and (max-width: 600px) {
     .sliderctg {
@@ -151,4 +154,15 @@ a:hover {
         text-align: center;
         padding-block: 0.7rem;
     }
+    .fa-min{
+        font-size: 12px;
+    }
+    .xxl{
+        display: none;
+    }
+    .ssm{
+        display: flex;
+    }
+    
+    
 }

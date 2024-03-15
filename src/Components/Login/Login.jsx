@@ -74,14 +74,17 @@ export default function Login() {
 
 
             <div className=" d-flex justify-content-between">
+
               <div className=" d-flex">
                 {isLoading ? <button type='submit' className='btn bg-main text-white'><i className='fa fa-spin fa-spinner'></i></button>
                   : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Login</button>}
-                <div className="px-3 pt-1">Don't Have An Email ? <Link className='fw-bold text-main1' to={"/register"}>Register</Link></div>
+                <div className="xxl px-2 pt-1">Don't Have An Email ? <Link className='fw-bold text-main1' to={"/register"}>Register</Link></div>
               </div>
-              <Link className={`${styles.textForgot} fw-bold`} to="/forgot" >Forgot Password</Link>
-            </div>
 
+              <Link className={`${styles.textForgot} pt-2 fw-bold`} to="/forgot" >Forgot Password</Link>
+
+            </div>
+            <div className=" ssm px-2 pt-3">Don't Have An Email ?<Link className='fw-bold text-main1' to={"/register"}> Register</Link></div>
 
           </form>
         </div>
