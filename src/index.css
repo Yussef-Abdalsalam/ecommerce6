@@ -155,14 +155,20 @@ a:hover {
         padding-block: 0.7rem;
     }
     .fa-min{
-        font-size: 12px;
+        font-size: 14px;
     }
     .xxl{
         display: none;
     }
     .ssm{
         display: flex;
+        font-size: 14px;
+        justify-content: center;
     }
-    
-    
+}
+@media only screen and (max-width: 376px) {
+    .fa-min{
+        font-size: 11px;
+    }
+
 }

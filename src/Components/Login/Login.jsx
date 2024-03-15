@@ -84,7 +84,7 @@ export default function Login() {
               <Link className={`${styles.textForgot} pt-2 fw-bold`} to="/forgot" >Forgot Password</Link>
 
             </div>
-            <div className=" ssm px-2 pt-3">Don't Have An Email ?<Link className='fw-bold text-main1' to={"/register"}> Register</Link></div>
+            <div className=" ssm px-1 pt-3">Don't Have An Email ?<Link className='fw-bold text-main1 px-1' to={"/register"}>Register</Link></div>
 
           </form>
         </div>

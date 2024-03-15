@@ -92,7 +92,7 @@ export default function Register() {
             <div className=" d-flex">
               {isLoading ? <button type='submit' className='btn bg-main text-white'><i className='fa fa-spin fa-spinner'></i></button>
                 : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Register</button>}
-              <div className="px-3 fa-min pt-2">Have An Email ? <Link className='text-main1 fw-bold' to={"/login"}>Login</Link></div>
+              <div className="px-1 fa-min pt-2">Have An Email ? <Link className='text-main1 fw-bold' to={"/login"}>Login</Link></div>
             </div>
 
           </form>
